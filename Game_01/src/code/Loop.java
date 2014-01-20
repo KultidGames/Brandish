@@ -6,7 +6,7 @@ import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -26,15 +26,15 @@ public class Loop extends Applet implements Runnable, KeyListener{
 		x = 100;
 		y = 100; //1:50 if Background wanted http://www.youtube.com/watch?v=dabnz7NSiUc
 		try {
-		rle = ImageIO.read(new File("Main Char Left Run.png"));
-		rri= ImageIO.read(new File("Main Char Right Run.png"));
-		wup= ImageIO.read(new File("Main Char Run Back.png"));
-		wdo= ImageIO.read(new File("Main Char.png"));
-		wright=ImageIO.read(new File("MainChar Right.png"));
-		wleft=ImageIO.read(new File("Main Char Left.png"));
-		back=ImageIO.read(new File("Main Char Back.png"));
-		still=ImageIO.read(new File("Main Char Still.png"));
-		rs= ImageIO.read(new File("Main Char Right Still.png"));
+		rle = ImageIO.read(new FileInputStream("Images/MainCharLeftRun.png)"));
+		rri= ImageIO.read(new FileInputStream("Images/MainCharRightRun.png"));
+		wup= ImageIO.read(new FileInputStream("Images/MainCharRunBack.png"));
+		wdo= ImageIO.read(new FileInputStream("Images/MainChar.png"));
+		wright=ImageIO.read(new FileInputStream("Images/MainCharRight.png"));
+		wleft=ImageIO.read(new FileInputStream("Images/MainCharLeft.png"));
+		back=ImageIO.read(new FileInputStream("Images/MainCharBack.png"));
+		still=ImageIO.read(new FileInputStream("Images/MainCharStill.png"));
+		rs= ImageIO.read(new FileInputStream("Images/MainCharRightStill.png"));
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}

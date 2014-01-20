@@ -11,4 +11,8 @@ public class GenLoader {
 		}
 		WorldGen.genWorld();
 	}
+	public static void blocks() {
+		// TODO Auto-generated method stub
+		
+	}
 }

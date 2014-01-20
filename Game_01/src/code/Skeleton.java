@@ -11,7 +11,7 @@ public class Skeleton extends Loop{ //Should extend Applet?
 	offscreen = createImage(1080,1080); // 120, 160
 	d = offscreen.getGraphics();
 	addKeyListener(this); //15:43
-	GenLoader.create();
+	GenLoader.blocks();
 	}
 public static final int HEIGHT = 120; //Original Height/Width= "120 x 160"
 public static final int WIDTH = 160;
