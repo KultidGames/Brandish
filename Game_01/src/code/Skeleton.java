@@ -23,7 +23,7 @@ public void paint(Graphics g) {
     d.drawImage(him, x, y,60, 60, this);     //12:17 http://www.youtube.com/watch?v=XmRD0PlAXEY
 	g.drawImage(offscreen, 0, 0, this);
 	}
-	public void update(Graphics g){
+	public void update(Graphics g){  //http://www.javacodegeeks.com/2011/08/eclipse-how-attach-java-source.html
 		paint(g); 
 
 	} //Finished at 15:33 ERROR w/ the circle -Fixed
