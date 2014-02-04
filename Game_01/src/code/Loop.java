@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 
@@ -25,23 +26,22 @@ public class Loop extends Applet implements Runnable, KeyListener{
 	public void run() {
 		x = 100;
 		y = 100; //1:50 if Background wanted http://www.youtube.com/watch?v=dabnz7NSiUc
-		URL rle = this.getClass().getResource("/Images/MainCharLeftRun.png)");
-		URL rri= this.getClass().getResource("/Images/MainCharRightRun.png");
-		URL wup= this.getClass().getResource("/Images/MainCharRunBack.png");
-		URL wdo= this.getClass().getResource("/Images/MainChar.png");
-		URL wright=this.getClass().getResource("/Images/MainCharRight.png");
-		URL wleft=this.getClass().getResource("/Images/MainCharLeft.png");
-		URL back=this.getClass().getResource("/Images/MainCharBack.png");
-		URL still=this.getClass().getResource("/Images/MainCharStill.png");
-		URL rs= this.getClass().getResource("/Images/MainCharRightStill.png");
+		URL rle = this.getClass().getResource("Images/MainCharLeftRun.png)");
+		URL rri= this.getClass().getResource("Images/MainCharRightRun.png");
+		URL wup= this.getClass().getResource("Images/MainCharRunBack.png");
+		URL wdo= this.getClass().getResource("Images/MainChar.png");
+		URL wright=this.getClass().getResource("Images/MainCharRight.png");
+		URL wleft=this.getClass().getResource("Images/MainCharLeft.png");
+		URL back=this.getClass().getResource("Images/MainCharBack.png");
+		URL still=this.getClass().getResource("Images/MainCharStill.png");
+		URL rs= this.getClass().getResource("Images/MainCharRightStill.png");
 		//him=still;
 		try {
-			img = ImageIO.read(still);
+			img = ImageIO.read(new FileInputStream("Images/MainCharStill.png"));
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		System.out.print("Test Sucess");
 		while(true) {
 			counter++;
 			if (counter >= 40){
