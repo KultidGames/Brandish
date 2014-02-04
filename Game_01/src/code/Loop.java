@@ -5,9 +5,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import javax.imageio.ImageIO;
 
@@ -17,28 +16,32 @@ public class Loop extends Applet implements Runnable, KeyListener{
 	public Image offscreen;
 	public Graphics d;
 	public boolean up, down, left, right;
-	public BufferedImage wleft, wright, wup, wdo, rri, rle, back, him, still, rs;
+	public URL wleft, wright, wup, wdo, rri, rle, back, still, rs, him;
 	public int counter;
 	public int LeftA;
 	public int UpA;
 	public int DownA;
+	public Image img = null;
 	public void run() {
 		x = 100;
 		y = 100; //1:50 if Background wanted http://www.youtube.com/watch?v=dabnz7NSiUc
+		URL rle = this.getClass().getResource("/Images/MainCharLeftRun.png)");
+		URL rri= this.getClass().getResource("/Images/MainCharRightRun.png");
+		URL wup= this.getClass().getResource("/Images/MainCharRunBack.png");
+		URL wdo= this.getClass().getResource("/Images/MainChar.png");
+		URL wright=this.getClass().getResource("/Images/MainCharRight.png");
+		URL wleft=this.getClass().getResource("/Images/MainCharLeft.png");
+		URL back=this.getClass().getResource("/Images/MainCharBack.png");
+		URL still=this.getClass().getResource("/Images/MainCharStill.png");
+		URL rs= this.getClass().getResource("/Images/MainCharRightStill.png");
+		//him=still;
 		try {
-		rle = ImageIO.read(new File("/Images/MainCharLeftRun.png)"));
-		rri= ImageIO.read(new File("/Images/MainCharRightRun.png"));
-		wup= ImageIO.read(new File("/Images/MainCharRunBack.png"));
-		wdo= ImageIO.read(new File("/Images/MainChar.png"));
-		wright=ImageIO.read(new File("/Images/MainCharRight.png"));
-		wleft=ImageIO.read(new File("/Images/MainCharLeft.png"));
-		back=ImageIO.read(new File("/Images/MainCharBack.png"));
-		still=ImageIO.read(new File("/Images/MainCharStill.png"));
-		rs= ImageIO.read(new File("/Images/MainCharRightStill.png"));
+			img = ImageIO.read(still);
 		} catch (IOException e1) {
+			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		him = still;
+		System.out.print("Test Sucess");
 		while(true) {
 			counter++;
 			if (counter >= 40){
