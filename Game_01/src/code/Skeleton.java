@@ -1,6 +1,7 @@
 package code;
 
 import java.awt.Graphics;
+import java.awt.Image;
 
 
 public class Skeleton extends Loop{ //Should extend Applet?
@@ -11,8 +12,9 @@ public class Skeleton extends Loop{ //Should extend Applet?
 	offscreen = createImage(1080,1080); // 120, 160
 	d = offscreen.getGraphics();
 	addKeyListener(this); //15:43
-	GenLoader.blocks();
 	}
+	
+Image image=null;
 public static final int HEIGHT = 120; //Original Height/Width= "120 x 160"
 public static final int WIDTH = 160;
 public static final String TITLE= "Test Game BETA";
@@ -22,14 +24,10 @@ boolean menu=true;
 
 public void paint(Graphics g) {
 	d.clearRect(0, 0, 1080, 1080); //Error Here, Scale perhaps? -Disregard //0, 0, 160, 120
-    d.drawImage(img, x, y,60, 60, this);     //12:17 http://www.youtube.com/watch?v=XmRD0PlAXEY
+	d.drawImage(him, x, y,60, 60, this); 
+	//d.drawImage(him, x, y,60, 60, this);     //12:17 http://www.youtube.com/watch?v=XmRD0PlAXEY
 	g.drawImage(offscreen, 0, 0, this);
-	
-	if(menu){
-		d.drawImage(Menu.getmenuSplash(), 0, 0, null);
-		return;
-	}
-}
+}	
 	public void update(Graphics g){  //http://www.javacodegeeks.com/2011/08/eclipse-how-attach-java-source.html
 		paint(g); 
 

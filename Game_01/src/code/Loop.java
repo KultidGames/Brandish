@@ -5,8 +5,9 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 
 import javax.imageio.ImageIO;
 
@@ -16,30 +17,30 @@ public class Loop extends Applet implements Runnable, KeyListener{
 	public Image offscreen;
 	public Graphics d;
 	public boolean up, down, left, right;
-	public URL wleft, wright, wup, wdo, rri, rle, back, still, rs, him;
+	public BufferedImage wleft, wright, wup, wdo, rri, rle, back, still, rs, him, map;
 	public int counter;
 	public int LeftA;
 	public int UpA;
 	public int DownA;
-	public Image img = null;
+	public int Health;
 	public void run() {
 		x = 100;
 		y = 100; //1:50 if Background wanted http://www.youtube.com/watch?v=dabnz7NSiUc
-		URL rle = this.getClass().getResource("/MainCharLeftRun.png)");
-		URL rri= this.getClass().getResource("/MainCharRightRun.png");
-		URL wup= this.getClass().getResource("/MainCharRunBack.png");
-		URL wdo= this.getClass().getResource("/MainChar.png");
-		URL wright=this.getClass().getResource("/MainCharRight.png");
-		URL wleft=this.getClass().getResource("/MainCharLeft.png");
-		URL back=this.getClass().getResource("/MainCharBack.png");
-		URL still=this.getClass().getResource("/MainCharStill.png");
-		URL rs= this.getClass().getResource("/MainCharRightStill.png");
-		him=still;
 		try {
-			img = ImageIO.read(him); //new File("/MainCharStill.png")
+		map = ImageIO.read(new File("Map.png"));
+		rle = ImageIO.read(new File("MainCharLeftRun.png"));
+		rri= ImageIO.read(new File("MainCharRightRun.png"));
+		wup= ImageIO.read(new File("MainCharRunBack.png"));
+		wdo= ImageIO.read(new File("MainChar.png"));
+		wright=ImageIO.read(new File("MainCharRight.png"));
+		wleft=ImageIO.read(new File("MainCharLeft.png"));
+		back=ImageIO.read(new File("MainCharBack.png"));
+		still=ImageIO.read(new File("MainCharStill.png"));
+		rs= ImageIO.read(new File("MainCharRightStill.png"));
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
+		him=still;
 		while(true) {
 			counter++;
 			if (counter >= 40){
