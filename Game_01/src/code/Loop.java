@@ -17,26 +17,30 @@ public class Loop extends Applet implements Runnable, KeyListener{
 	public Image offscreen;
 	public Graphics d;
 	public boolean up, down, left, right;
-	public BufferedImage wleft, wright, wup, wdo, rri, rle, back, still, rs, him, map;
+	public BufferedImage wleft, wright, wup, wdo, rri, rle, back, still, rs, him, map,ls, fore, Hrt;
 	public int counter;
 	public int LeftA;
 	public int UpA;
 	public int DownA;
-	public int Health;
+	public int Health=10;
+	
+
 	public void run() {
 		x = 100;
 		y = 100; //1:50 if Background wanted http://www.youtube.com/watch?v=dabnz7NSiUc
 		try {
+		fore = ImageIO.read(new File("Map_F.png"));
 		map = ImageIO.read(new File("Map.png"));
-		rle = ImageIO.read(new File("MainCharLeftRun.png"));
-		rri= ImageIO.read(new File("MainCharRightRun.png"));
-		wup= ImageIO.read(new File("MainCharRunBack.png"));
-		wdo= ImageIO.read(new File("MainChar.png"));
-		wright=ImageIO.read(new File("MainCharRight.png"));
-		wleft=ImageIO.read(new File("MainCharLeft.png"));
-		back=ImageIO.read(new File("MainCharBack.png"));
-		still=ImageIO.read(new File("MainCharStill.png"));
-		rs= ImageIO.read(new File("MainCharRightStill.png"));
+		rle = ImageIO.read(new File("MainCharRightRun.png")); //c
+		rri= ImageIO.read(new File("MainCharLeftRun.png"));//-
+		wup= ImageIO.read(new File("MainChar.png"));//c
+		wdo= ImageIO.read(new File("MainCharRunBack.png"));//-
+		wright=ImageIO.read(new File("MainCharLeft.png"));//c
+		wleft=ImageIO.read(new File("MainCharRight.png"));//-
+		back=ImageIO.read(new File("MainCharStill.png"));//c
+		still=ImageIO.read(new File("MainCharBack.png"));//-
+		rs= ImageIO.read(new File("MainCharLeftStill.png"));//c
+		ls= ImageIO.read(new File("MainCharRightStill.png"));//-
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
@@ -59,7 +63,7 @@ public class Loop extends Applet implements Runnable, KeyListener{
 				him=wright;
 			}
 			LeftA++; 
-			if (LeftA >= 30){
+			if (LeftA >= 40){
 				LeftA=0;
 			}
 			if (LeftA >= 10 && LeftA <= 20 && left == true){
@@ -68,7 +72,10 @@ public class Loop extends Applet implements Runnable, KeyListener{
 			if (LeftA <= 20 && LeftA >=10 && left == true){
 				him=rle;
 			}
-			if (LeftA >= 20 && LeftA <= 30 && left == true){
+			if (LeftA <=30 && LeftA >=40 && left==true){
+				him=ls;
+			}
+			if (LeftA >= 30 && LeftA <= 40 && left == true){
 				him=wleft;
 			}
 			UpA++; 
@@ -76,7 +83,7 @@ public class Loop extends Applet implements Runnable, KeyListener{
 				UpA=0;
 			}
 			if (UpA >= 10 && UpA <= 20 && up == true){
-				him=wup;
+				him=wup; //wup
 			}
 			if (UpA <= 20 && UpA >=10 && up == true){
 				him=back;
@@ -111,42 +118,79 @@ public class Loop extends Applet implements Runnable, KeyListener{
 			}
 			repaint();
 			try {
-				Thread.sleep(10); //Standard 20, makes you go faster
+				Thread.sleep(01); //Standard 20, makes you go faster
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			} }
 		}
 	public void keyPressed(KeyEvent e) { //If Incorrect, e = "arg0"
-		if (e.getKeyCode() == 65 ){
+		if (e.getKeyCode() == 68 ){ //left
 			left = true;
 		}
-		if (e.getKeyCode() == 68 ){
+		if (e.getKeyCode() == 65 ){ //right
 			right = true;
 		}
-		if (e.getKeyCode() == 87 ){
+		if (e.getKeyCode() == 83 ){ //up
 			up = true;
 		}
-		if (e.getKeyCode() == 83 ){
+		if (e.getKeyCode() == 87 ){ //down
 			down = true;
 		}
 	}
 	public void keyReleased(KeyEvent e) {
-		if (e.getKeyCode() == 65 ){
+		if (e.getKeyCode() == 68 ){
 			left = false;
 			him = rle;
 		}
-		if (e.getKeyCode() == 68 ){
+		if (e.getKeyCode() == 65 ){
 				right = false;
 				him = rri;
 			}
-		if (e.getKeyCode() == 87 ){
+		if (e.getKeyCode() == 83 ){
 				up = false;
 				him = wup;
 			}
-		if (e.getKeyCode() == 83 ){
+		if (e.getKeyCode() == 87 ){
 				down = false;
 				him = wdo;
 			}			
 		}
 	public void keyTyped(KeyEvent e) {}
+
+	public void Health() throws IOException{
+		if (Health==10){
+			Hrt=ImageIO.read(new File("H10.png"));
+		}
+		if (Health==9){
+			Hrt=ImageIO.read(new File("H9.png"));
+		}
+		if (Health==8){
+			Hrt=ImageIO.read(new File("H8.png"));
+		}
+		if (Health==7){
+			Hrt=ImageIO.read(new File("H7.png"));
+		}
+		if (Health==6){
+			Hrt=ImageIO.read(new File("H6.png"));
+		}
+		if (Health==5){
+			Hrt=ImageIO.read(new File("H5.png"));
+		}		
+		if (Health==4){
+			Hrt=ImageIO.read(new File("H4.png"));
+		}
+		if (Health==3){
+			Hrt=ImageIO.read(new File("H3.png"));
+		}
+		if (Health==2){
+			Hrt=ImageIO.read(new File("H2.png"));
+		}
+		if (Health==1){
+			Hrt=ImageIO.read(new File("H1.png"));
+		}
+		if (Health==0){
+			Hrt=ImageIO.read(new File("H0.png"));
+		}
+	System.out.println(Health);
+	}	
 }
