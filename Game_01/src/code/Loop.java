@@ -23,7 +23,6 @@ public class Loop extends Applet implements Runnable, KeyListener{
 	public int UpA;
 	public int DownA;
 	public int Health=10;
-	
 
 	public void run() {
 		x = 100;
@@ -157,39 +156,13 @@ public class Loop extends Applet implements Runnable, KeyListener{
 		}
 	public void keyTyped(KeyEvent e) {}
 
-	public void Health() throws IOException{
+	public void Health() {
 		if (Health==10){
-			Hrt=ImageIO.read(new File("H10.png"));
-		}
-		if (Health==9){
-			Hrt=ImageIO.read(new File("H9.png"));
-		}
-		if (Health==8){
-			Hrt=ImageIO.read(new File("H8.png"));
-		}
-		if (Health==7){
-			Hrt=ImageIO.read(new File("H7.png"));
-		}
-		if (Health==6){
-			Hrt=ImageIO.read(new File("H6.png"));
-		}
-		if (Health==5){
-			Hrt=ImageIO.read(new File("H5.png"));
-		}		
-		if (Health==4){
-			Hrt=ImageIO.read(new File("H4.png"));
-		}
-		if (Health==3){
-			Hrt=ImageIO.read(new File("H3.png"));
-		}
-		if (Health==2){
-			Hrt=ImageIO.read(new File("H2.png"));
-		}
-		if (Health==1){
-			Hrt=ImageIO.read(new File("H1.png"));
-		}
-		if (Health==0){
-			Hrt=ImageIO.read(new File("H0.png"));
+			try {
+				Hrt = ImageIO.read(new File("H" + Health + ".png"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	System.out.println(Health);
 	}	

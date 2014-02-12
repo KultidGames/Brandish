@@ -25,9 +25,9 @@ boolean menu=true;
 public void paint(Graphics g) {
 	d.clearRect(0, 0, 160, 160); //Error Here, Scale perhaps? -Disregard //0, 0, 160, 120
 	d.drawImage(map, x,y, 6480, 6480, this); //6480 //548 545
-	d.drawImage(him,440, 440, 60, 60, this);    //12:17 http://www.youtube.com/watch?v=XmRD0PlAXEY
-	d.drawImage(fore, x,y, 6480, 6480, this);
-	d.drawImage(Hrt, 0,0, 150, 150, this);
+	d.drawImage(him,540, 540, 60, 60, this); //12:17 http://www.youtube.com/watch?v=XmRD0PlAXEY
+	d.drawImage(fore,x, y, 6480, 6480, this);
+	d.drawImage(Hrt,x, y, 1240, 1240, this);
 	g.drawImage(offscreen, 0, 0, this);
 }	
 	public void update(Graphics g){  //http://www.javacodegeeks.com/2011/08/eclipse-how-attach-java-source.html
